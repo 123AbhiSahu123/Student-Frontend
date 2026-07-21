@@ -1,6 +1,46 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { addData } from "../services/authService";
+import { useNavigate } from "react-router-dom";
 
 const Data = () => {
+
+  const [form, setForm] = useState({
+    course: "",
+    phone: "",
+    age: "",
+    location: "",
+  });
+
+  const handleChange = (e) => {
+
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+
+  };
+
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+
+    e.preventDefault();
+
+    try {
+
+      const token = localStorage.getItem("token");
+
+      const response = await addData(form, token);
+      alert("Data Added Successfully");
+      navigate("/profile");
+
+    } catch (err) {
+      console.log(err.response?.data);
+    }
+  };
+
+
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-indigo-100 flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
@@ -16,9 +56,9 @@ const Data = () => {
         </div>
 
         {/* Form */}
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
 
-          {/* Full Name */}
+          {/* Course Name */}
           <div>
             <label className="block text-gray-700 font-medium mb-2">
               Course :-
@@ -26,12 +66,14 @@ const Data = () => {
 
             <input
               type="text"
+              name="course"
               placeholder="Enter your Course Name"
               className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              onChange={handleChange}
             />
           </div>
 
-          {/* Email */}
+          {/* Phone Number */}
           <div>
             <label className="block text-gray-700 font-medium mb-2">
               Phone No. :-
@@ -39,25 +81,29 @@ const Data = () => {
 
             <input
               type="number"
+              name="phone"
               placeholder="Enter your Phone No."
               className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              onChange={handleChange}
             />
           </div>
 
-          {/* Password */}
+          {/* Age */}
           <div>
             <label className="block text-gray-700 font-medium mb-2">
-                Age :-
+              Age :-
             </label>
 
             <input
               type="number"
+              name="age"
               placeholder="Enter Your Age"
               className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              onChange={handleChange}
             />
           </div>
 
-          {/* Confirm Password */}
+          {/* Location */}
           <div>
             <label className="block text-gray-700 font-medium mb-2">
               Location :-
@@ -65,8 +111,10 @@ const Data = () => {
 
             <input
               type="text"
+              name="location"
               placeholder="Address"
               className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              onChange={handleChange}
             />
           </div>
 

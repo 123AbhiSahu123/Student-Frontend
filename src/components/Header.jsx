@@ -37,6 +37,10 @@ const Navbar = () => {
             <NavLink to="/data" className={navLinkStyle}>
               Data
             </NavLink>
+
+            <NavLink to="/profile" className={navLinkStyle}>
+              Profile
+            </NavLink>
           </div>
 
           {/* Mobile Button */}
@@ -73,6 +77,14 @@ const Navbar = () => {
               onClick={() => setIsOpen(false)}
             >
               Data
+            </NavLink>
+
+            <NavLink
+              to="/profile"
+              className={navLinkStyle}
+              onClick={() => setIsOpen(false)}
+            >
+              Profile
             </NavLink>
           </div>
         )}

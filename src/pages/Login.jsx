@@ -1,6 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { loginUser } from "../services/authService";
+
+// sahuabhishek3810@gmail.com
+//1234 
 
 const Login = () => {
+
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
+    email: "",
+    password: "",
+  })
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await loginUser(form);
+      localStorage.setItem("token", response.token);
+      localStorage.setItem("userId", response.user.id);
+      alert("Login Sucessful");
+      navigate("/data");
+    } catch (err) {
+      console.log(err.response?.data)
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-indigo-100 flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
@@ -16,7 +50,7 @@ const Login = () => {
         </div>
 
         {/* Form */}
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
 
           {/* Email */}
           <div>
@@ -26,8 +60,10 @@ const Login = () => {
 
             <input
               type="email"
+              name="email"
               placeholder="Enter your email"
               className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              onChange={handleChange}
             />
           </div>
 
@@ -39,21 +75,10 @@ const Login = () => {
 
             <input
               type="password"
+              name="password"
               placeholder="Enter password"
               className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
-            />
-          </div>
-
-          {/* Confirm Password */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Confirm Password :-
-            </label>
-
-            <input
-              type="password"
-              placeholder="Confirm password"
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              onChange={handleChange}
             />
           </div>
 

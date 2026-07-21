@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Data from './pages/Data';
 import Footer from "./components/Footer";
+import Profile from './pages/Profile';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/data" element={<Data />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
     </>

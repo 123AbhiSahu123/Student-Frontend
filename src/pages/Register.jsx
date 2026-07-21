@@ -1,6 +1,33 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { registerUser } from "../services/authService";
 
 const Register = () => {
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+  })
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    })
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const data = await registerUser(form);
+      alert("Register Success");
+    } catch (err) {
+      console.log(err.response.data);
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-indigo-100 flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
@@ -16,7 +43,7 @@ const Register = () => {
         </div>
 
         {/* Form */}
-        <form className="space-y-5">
+        <form className="space-y-5" onSubmit={handleSubmit}>
 
           {/* Full Name */}
           <div>
@@ -28,6 +55,8 @@ const Register = () => {
               type="text"
               placeholder="Enter your full name"
               className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              name="name"
+              onChange={handleChange}
             />
           </div>
 
@@ -41,6 +70,8 @@ const Register = () => {
               type="email"
               placeholder="Enter your email"
               className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              name="email"
+              onChange={handleChange}
             />
           </div>
 
@@ -54,6 +85,8 @@ const Register = () => {
               type="password"
               placeholder="Enter password"
               className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              name="password"
+              onChange={handleChange}
             />
           </div>
 
@@ -67,6 +100,8 @@ const Register = () => {
               type="password"
               placeholder="Confirm password"
               className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+              name="password"
+              onChange={handleChange}
             />
           </div>
 
