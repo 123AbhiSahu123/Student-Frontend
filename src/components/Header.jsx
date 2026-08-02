@@ -6,10 +6,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinkStyle = ({ isActive }) =>
-    `px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-      isActive
-        ? "bg-blue-600 text-white shadow-md"
-        : "text-gray-700 hover:bg-blue-100 hover:text-blue-600"
+    `px-4 py-2 rounded-lg font-medium transition-all duration-300 ${isActive
+      ? "bg-blue-600 text-white shadow-md"
+      : "text-gray-700 hover:bg-blue-100 hover:text-blue-600"
     }`;
 
   return (
@@ -41,6 +40,11 @@ const Navbar = () => {
             <NavLink to="/profile" className={navLinkStyle}>
               Profile
             </NavLink>
+            <li>
+              <NavLink to="/admin/login">
+                Admin Dashboard
+              </NavLink>
+            </li>
           </div>
 
           {/* Mobile Button */}
@@ -86,6 +90,11 @@ const Navbar = () => {
             >
               Profile
             </NavLink>
+
+            <NavLink to="/admin/login">
+              Admin Dashboard
+            </NavLink>
+
           </div>
         )}
       </div>

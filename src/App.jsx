@@ -7,6 +7,8 @@ import Login from './pages/Login';
 import Data from './pages/Data';
 import Footer from "./components/Footer";
 import Profile from './pages/Profile';
+import AdminLogin from './superAdmin/pages/AdminLogin';
+import AdminDashboard from './superAdmin/pages/AdminDashboard';
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/data" element={<Data />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>
       <Footer />
     </>
