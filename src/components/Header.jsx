@@ -40,11 +40,11 @@ const Navbar = () => {
             <NavLink to="/profile" className={navLinkStyle}>
               Profile
             </NavLink>
-            <li>
-              <NavLink to="/admin/login">
-                Admin Dashboard
-              </NavLink>
-            </li>
+
+            <NavLink to="/admin/login">
+              Admin Dashboard
+            </NavLink>
+
           </div>
 
           {/* Mobile Button */}

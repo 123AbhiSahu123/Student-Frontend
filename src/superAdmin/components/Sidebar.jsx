@@ -10,14 +10,14 @@ const Sidebar = () => {
                 <li>
                     <Link
                     to="/admin/dashboard"
-                    className="hover:text-yellow-300">
+                    className="hover:text-blue-600">
                         Dashboard
                     </Link>
                 </li>
                 <li>
                     <Link 
-                    to="/admin/dashboard"
-                    className="hover:text-yellow-300">
+                    to="/admin/students"
+                    className="hover:text-blue-600">
                         Students
                     </Link>
                 </li>

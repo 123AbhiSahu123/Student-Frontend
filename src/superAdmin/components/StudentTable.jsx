@@ -1,4 +1,7 @@
-const StudentTable = ({ students, deleteStudent }) => {
+
+const StudentTable = ({ students, 
+    // deleteStudent 
+}) => {
 
     return (
 
