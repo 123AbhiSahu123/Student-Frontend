@@ -31,8 +31,23 @@ export const getAllStudents = async () => {
 }
 
 // ============================
-// Get Student By Id
+// Admin dashboard Logout
 // ============================
+export const superAdminLogout = async () => {
+    const token = localStorage.getItem("adminToken");
+
+    const response = await api.post(
+        "/superadmin/logout",
+        {},
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    );
+    return response.data;
+}
+
 
 // ============================
 // Delete Student

@@ -24,22 +24,18 @@ const AdminDashboard = () => {
                         <div className="bg-white shadow rounded p-6">
 
                             <h2 className="text-lg font-semibold">
-
                                 Total Students
-
                             </h2>
 
-                            <h1 className="text-4xl font-bold mt-3">
-                                
+                            <h1 className="text-4xl font-bold mt-3">                               
                                 {students.length}
-
                             </h1>
                         </div>
 
                         {/* Total Courses */}
                         <div className="bg-white rounded-lg shadow p-6">
 
-                            <h2 className="text-gray-500">
+                            <h2 className="text-lg font-semibold">
                                 Total Courses
                             </h2>
 
