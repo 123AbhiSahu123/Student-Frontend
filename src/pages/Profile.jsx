@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { getProfile } from "../services/authService";
+import { getProfile, logout } from "../services/authService";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+    const navigate = useNavigate();
     const [profile, setProfile] = useState(null);
 
     useEffect(() => {
@@ -26,6 +28,21 @@ const Profile = () => {
                 </h1>
             </div>
         );
+    }
+
+    //Logout function
+
+    const handleLogout = async () => {
+        try {
+            await logout();
+            localStorage.removeItem("token");
+            navigate("/login");
+        } catch (error) {
+            console.error("Logout Error:", error);
+            //Again token remove
+            localStorage.removeItem("token");
+            navigate("/login");
+        }
     }
 
     return (
@@ -191,9 +208,14 @@ const Profile = () => {
                     </div>
 
                 </div>
-
+                <div className="text-white flex items-center justify-center mt-3">
+                    <button
+                        onClick={handleLogout}
+                        className="bg-red-500 px-4 py-2 rounded hover:bg-red-600">
+                        Logout
+                    </button>
+                </div>
             </div>
-
         </div>
     );
 };

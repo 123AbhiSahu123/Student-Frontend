@@ -13,3 +13,6 @@ npm create vite@latest my-app -- --template react-js
 
 #) Web → react-dom (browser DOM)
 Mobile app → react-native (iOS/Android native components)
+
+#) User_login (Authorization) = token
+#) Superadmin_login (Authorization) = adminToken

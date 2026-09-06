@@ -31,3 +31,20 @@ export const getProfile = async (token) => {
     });
     return response.data;
 }
+
+//Logout
+export const logout = async () => {
+    const token = localStorage.getItem("token");
+    console.log("Logout Token:", token);
+
+    const response = await api.post(
+        "/logout",
+        {},
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    );
+    return response.data;
+}
