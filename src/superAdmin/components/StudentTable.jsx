@@ -1,6 +1,6 @@
 
 const StudentTable = ({ students, 
-    // deleteStudent 
+    deleteStudent 
 }) => {
 
     return (

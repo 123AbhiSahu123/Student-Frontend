@@ -52,3 +52,16 @@ export const superAdminLogout = async () => {
 // ============================
 // Delete Student
 // ============================
+
+export const deleteStudent = async (id) => {
+    const token = localStorage.getItem("adminToken")
+    const response = await api.delete(
+        `/superadmin/students/${id}`,
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        }
+    );
+    return response.data;
+}

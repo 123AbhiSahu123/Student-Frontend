@@ -6,7 +6,7 @@ import StudentTable from "../components/StudentTable";
 
 import {
     getAllStudents,
-    // deleteStudent,
+    deleteStudent,
 } from "../services/superAdminService";
 
 
