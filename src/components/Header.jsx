@@ -41,7 +41,7 @@ const Navbar = () => {
               Profile
             </NavLink>
 
-            <NavLink to="/admin/login">
+            <NavLink to="/admin/login" className={navLinkStyle}>
               Admin Dashboard
             </NavLink>
 
@@ -91,7 +91,7 @@ const Navbar = () => {
               Profile
             </NavLink>
 
-            <NavLink to="/admin/login">
+            <NavLink to="/admin/login" className={navLinkStyle}>
               Admin Dashboard
             </NavLink>
 

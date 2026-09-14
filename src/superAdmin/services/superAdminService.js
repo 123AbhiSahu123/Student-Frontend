@@ -16,17 +16,31 @@ export const adminLogin = async (loginData) => {
 // Get All Students
 // ============================
 
-export const getAllStudents = async () => {
+export const getAllStudents = async ({
+    page = 1,
+    limit = 5,
+    search = "",
+    fromDate = "",
+    toDate = "",
+} = {}) => {
+
     const token = localStorage.getItem("adminToken");
 
     const response = await api.get(
-        "/superadmin/students",
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }
-    );
+        "/superadmin/students", {
+        params: {
+          page,
+          limit,
+          search,
+          fromDate,
+          toDate,  
+        },
+        
+        headers: {
+            Authorization: `Bearer ${token}`,
+
+        },
+    });
     return response.data;
 }
 

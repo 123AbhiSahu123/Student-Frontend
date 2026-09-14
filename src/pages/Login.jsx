@@ -26,12 +26,22 @@ const Login = () => {
 
     try {
       const response = await loginUser(form);
+     
       localStorage.setItem("token", response.token);
       localStorage.setItem("userId", response.user.id);
       alert("Login Sucessful");
-      navigate("/data");
+
+      // register user have in database already  
+      if (response.hasData) {
+        navigate("/profile");
+      }
+      //user not have in database
+      else {
+        navigate("/data");
+      }
     } catch (err) {
-      console.log(err.response?.data)
+      console.log(err.response?.data);
+       console.error("LOGIN ERROR:", err);
     }
   }
 
