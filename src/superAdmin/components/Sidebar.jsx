@@ -21,6 +21,20 @@ const Sidebar = () => {
                         Students
                     </Link>
                 </li>
+                <li>
+                    <Link 
+                    to="#"
+                    className="hover:text-blue-600">
+                        Teacher Admit
+                    </Link>
+                </li>
+                <li>
+                    <Link 
+                    to="#"
+                    className="hover:text-blue-600">
+                        Teacher List
+                    </Link>
+                </li>
             </ul>
         </div>
     );

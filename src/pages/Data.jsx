@@ -64,13 +64,28 @@ const Data = () => {
               Course :-
             </label>
 
-            <input
-              type="text"
+            <select
               name="course"
               placeholder="Enter your Course Name"
               className="w-full border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
               onChange={handleChange}
-            />
+            >
+              <option value="Python Full Stack">Python Full Stack</option>
+              <option value="C Full Stack">C Full Stack</option>
+              <option value="C++ Full Stack">C++ Full Stack</option>
+              <option value="Java Full Stack">Java Full Stack</option>
+              <option value="C# and DotNet">C# and DotNet</option>
+              <option value="Kotlin">Kotlin</option>
+              <option value="MERN Full Stack">MERN Full Stack</option>
+              <option value="MEAN Full Stack">MEAN Full Stack</option>
+              <option value="WordPress">WordPress</option>
+              <option value="PHP & Laravel">PHP & Laravel</option>
+              <option value="Gen AI">Gen AI</option>
+              <option value="Git And GitHub">Git And GitHub</option>
+              <option value="Digital Marketing">Digital Marketing</option>
+              <option value="Flutter">Flutter</option>
+              <option value="Testing">Testing</option>
+            </select>
           </div>
 
           {/* Phone Number */}

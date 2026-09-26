@@ -48,17 +48,17 @@ const performanceData = [
 
 const courseData = [
     {
-        name: "Computer Science",
+        name: "Java Full Stack",
         value: 35,
         color: "#10b981",
     },
     {
-        name: "Mathematics",
+        name: "MERN Stack",
         value: 28,
         color: "#06b6d4",
     },
     {
-        name: "English",
+        name: "Python Full Stack",
         value: 22,
         color: "#3b82f6",
     },
@@ -282,7 +282,7 @@ const AdminDashboard = () => {
                                 />
 
                                 <StatCard
-                                    title="Attendance"
+                                    title="Placement"
                                     value="92.4%"
                                     percentage="+4.7%"
                                     positive={true}
@@ -310,11 +310,11 @@ const AdminDashboard = () => {
 
                                         <div>
                                             <h2 className="text-sm font-semibold text-white">
-                                                Student Performance
+                                                Academic Performance
                                             </h2>
 
                                             <p className="mt-1 text-[10px] text-gray-500">
-                                                Monthly average academic performance
+                                              Academic Support
                                             </p>
                                         </div>
 
@@ -324,15 +324,15 @@ const AdminDashboard = () => {
                                         <div className="flex w-fit rounded-lg bg-[#202020] p-1">
 
                                             <button className="rounded-md px-3 py-1.5 text-[10px] text-gray-500 transition hover:text-white">
-                                                Attendance
+                                                Week
                                             </button>
 
                                             <button className="rounded-md bg-black px-3 py-1.5 text-[10px] font-medium text-white shadow">
-                                                Performance
+                                                Fornighty
                                             </button>
 
                                             <button className="rounded-md px-3 py-1.5 text-[10px] text-gray-500 transition hover:text-white">
-                                                Marks
+                                                Month
                                             </button>
 
                                         </div>
@@ -444,11 +444,11 @@ const AdminDashboard = () => {
 
                                         <div>
                                             <h2 className="text-sm font-semibold">
-                                                Course Distribution
+                                                Most liked course by any Student
                                             </h2>
 
                                             <p className="mt-1 text-[10px] text-gray-500">
-                                                Student enrollment by course
+                                                Student prefered course
                                             </p>
                                         </div>
 
@@ -563,10 +563,10 @@ const AdminDashboard = () => {
 
                                         <div className="mt-4 space-y-4">
 
-                                            {/* Attendance */}
+                                            {/* Placement */}
 
                                             <ProgressItem
-                                                title="Attendance"
+                                                title="Placement Support"
                                                 value="92%"
                                                 target="Target: 95%"
                                                 percentage={92}
@@ -587,10 +587,10 @@ const AdminDashboard = () => {
                                             />
 
 
-                                            {/* Average Marks */}
+                                            {/* Project Support */}
 
                                             <ProgressItem
-                                                title="Average Marks"
+                                                title="Project Support"
                                                 value="84%"
                                                 target="Target: 90%"
                                                 percentage={84}
@@ -625,7 +625,7 @@ const AdminDashboard = () => {
                                         </p>
 
                                         <p className="text-sm font-semibold">
-                                            A-
+                                            B+
                                         </p>
                                     </div>
 
@@ -640,7 +640,7 @@ const AdminDashboard = () => {
 
                                     <div>
                                         <p className="text-[10px] text-gray-500">
-                                            Top Performer
+                                            Certification
                                         </p>
 
                                         <p className="text-sm font-semibold">
@@ -659,11 +659,11 @@ const AdminDashboard = () => {
 
                                     <div>
                                         <p className="text-[10px] text-gray-500">
-                                            Today's Attendance
+                                            Teachers Attendance
                                         </p>
 
                                         <p className="text-sm font-semibold text-emerald-400">
-                                            Present
+                                            24*7
                                         </p>
                                     </div>
 
