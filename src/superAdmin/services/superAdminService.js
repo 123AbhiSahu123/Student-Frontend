@@ -13,6 +13,24 @@ export const adminLogin = async (loginData) => {
 }
 
 // ============================
+// Dashboard
+// ============================
+export const getDashboardStats = async (period = "week") => {
+    const token = localStorage.getItem("adminToken");
+
+    const response = await api.get("/superadmin/dashboard", {
+        params: {
+            period: period
+        },
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    });
+    return response.data;
+};
+
+
+// ============================
 // Get All Students
 // ============================
 
@@ -29,13 +47,13 @@ export const getAllStudents = async ({
     const response = await api.get(
         "/superadmin/students", {
         params: {
-          page,
-          limit,
-          search,
-          fromDate,
-          toDate,  
+            page,
+            limit,
+            search,
+            fromDate,
+            toDate,
         },
-        
+
         headers: {
             Authorization: `Bearer ${token}`,
 

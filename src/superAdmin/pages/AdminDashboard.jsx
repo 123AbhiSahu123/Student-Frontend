@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getDashboardStats } from "../../superAdmin/services/superAdminService";
 import AdminNavbar from "../components/AdminNavbar";
 import Sidebar from "../components/Sidebar";
 import {
@@ -229,6 +230,31 @@ const AdminDashboard = () => {
 
     const [students, setStudents] = useState([]);
 
+    // State
+    const [period, setPeriod] = useState("week");
+    const [dashboardData, setDashboardData] = useState(null);
+
+    const chartData =
+        dashboardData?.academicPerformance?.labels?.map((label, index) => ({
+            month: label,
+            marks: performanceData[index % performanceData.length].marks,
+        })) || [];
+
+    // API fetch
+    useEffect(() => {
+        const fetchDashboardData = async () => {
+            try {
+                const data = await getDashboardStats(period);
+                console.log("Dashboard Data:", data);
+                setDashboardData(data);
+            }
+            catch (error) {
+                console.error("Dashboard Error:", error);
+            }
+        };
+        fetchDashboardData();
+    }, [period]);
+
     return (
         <>
             <div className="min-h-screen bg-[#090909] text-white">
@@ -314,7 +340,7 @@ const AdminDashboard = () => {
                                             </h2>
 
                                             <p className="mt-1 text-[10px] text-gray-500">
-                                              Academic Support
+                                                Academic Support
                                             </p>
                                         </div>
 
@@ -323,15 +349,21 @@ const AdminDashboard = () => {
 
                                         <div className="flex w-fit rounded-lg bg-[#202020] p-1">
 
-                                            <button className="rounded-md px-3 py-1.5 text-[10px] text-gray-500 transition hover:text-white">
+                                            <button
+                                                onClick={() => setPeriod("week")}
+                                                className={`rounded-md px-3 py-1.5 text-[10px] text-gray-500 transition ${period === "week" ? "bg-black font-medium text-white shadow" : "text-gray-500 hover:text-white"}`}>
                                                 Week
                                             </button>
 
-                                            <button className="rounded-md bg-black px-3 py-1.5 text-[10px] font-medium text-white shadow">
-                                                Fornighty
+                                            <button
+                                                onClick={() => setPeriod("fornight")}
+                                                className={`rounded-md px-3 py-1.5 text-[10px] text-gray-500 transition ${period === "fornight" ? "bg-black font-medium text-white shadow" : "text-gray-500 hover:text-white"}`}>
+                                                Fortnight
                                             </button>
 
-                                            <button className="rounded-md px-3 py-1.5 text-[10px] text-gray-500 transition hover:text-white">
+                                            <button
+                                                onClick={() => setPeriod("month")}
+                                                className={`rounded-md px-3 py-1.5 text-[10px] text-gray-500 transition ${period === "month" ? "bg-black font-medium text-white shadow" : "text-gray-500 hover:text-white"}`}>
                                                 Month
                                             </button>
 
@@ -346,7 +378,7 @@ const AdminDashboard = () => {
                                         <ResponsiveContainer width="100%" height="100%">
 
                                             <AreaChart
-                                                data={performanceData}
+                                                data={chartData}
                                                 margin={{
                                                     top: 10,
                                                     right: 5,
