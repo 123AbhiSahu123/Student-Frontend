@@ -257,11 +257,11 @@ const AdminDashboard = () => {
 
     return (
         <>
-            <div className="min-h-screen bg-[#090909] text-white">
+            <div className="h-screen overflow-hidden flex flex-col bg-[#090909] text-white">
                 <AdminNavbar />
-                <div className="flex">
+                <div className="flex flex-1 min-h-0 overflow-hidden">
                     <Sidebar />
-                    <main className="flex-1 p-2 bg-gray-100 min-w-0">
+                    <main className="flex-1 p-2 min-w-0 min-h-0 overflow-x-hidden overflow-y-auto p-2 bg-gray-100">
                         <div className="px-4 py-5 sm:px-6 lg:px-8">
                             <div className="mb-5">
                                 <h1 className="text-3xl text-black font-bold">

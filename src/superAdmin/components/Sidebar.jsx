@@ -23,14 +23,14 @@ const Sidebar = () => {
                 </li>
                 <li>
                     <Link 
-                    to="#"
+                    to="/admin/teacher/register"
                     className="hover:text-blue-600">
                         Teacher Admit
                     </Link>
                 </li>
                 <li>
                     <Link 
-                    to="#"
+                    to="/admin/teacher/"
                     className="hover:text-blue-600">
                         Teacher List
                     </Link>

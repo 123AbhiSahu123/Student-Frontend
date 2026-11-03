@@ -12,7 +12,8 @@ import AdminDashboard from "../superAdmin/pages/AdminDashboard";
 import AdminStudents from "../superAdmin/pages/AdminStudents";
 
 import AdminRoute from "../superAdmin/routes/AdminRoute";
-
+import TeacherRegister from "../superAdmin/pages/teacher/TeacherRegister";
+import TeacherList from "../superAdmin/pages/teacher/TeacherList";
 
 const AppRoutes = () => {
 
@@ -74,6 +75,16 @@ const AppRoutes = () => {
                     path="/admin/students"
                     element={<AdminStudents />}
                 />
+
+                <Route
+                    path="/admin/teacher/register"
+                    element={<TeacherRegister />}
+                />
+
+                <Route
+                    path="/admin/teacher/"
+                    element={<TeacherList />}
+                />
             </Route>
 
         </Routes>
@@ -85,49 +96,3 @@ const AppRoutes = () => {
 
 export default AppRoutes;
 
-// import { Routes, Route } from "react-router-dom";
-
-// import AdminLogin from "../superAdmin/pages/AdminLogin";
-// import AdminDashboard from "../superAdmin/pages/AdminDashboard";
-// import AdminRoute from "../superAdmin/routes/AdminRoute";
-
-// // Existing Pages
-// import Home from "../pages/Home";
-// import Login from "../pages/Login";
-// import Register from "../pages/Register";
-
-// const AppRoutes = () => {
-
-//     return (
-
-//         <Routes>
-
-//             <Route path="/" element={<Home />} />
-
-//             <Route path="/login" element={<Login />} />
-
-//             <Route path="/register" element={<Register />} />
-
-//             {/* Admin */}
-
-//             <Route
-//                 path="/admin/login"
-//                 element={<AdminLogin />}
-//             />
-
-//             <Route
-//                 path="/admin/dashboard"
-//                 element={
-//                     <AdminRoute>
-//                         <AdminDashboard />
-//                     </AdminRoute>
-//                 }
-//             />
-
-//         </Routes>
-
-//     );
-
-// };
-
-// export default AppRoutes;

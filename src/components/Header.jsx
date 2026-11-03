@@ -38,7 +38,7 @@ const Navbar = () => {
             </NavLink>
 
             <NavLink to="/profile" className={navLinkStyle}>
-              Profile
+              Student Profile
             </NavLink>
 
             <NavLink to="/admin/login" className={navLinkStyle}>
@@ -88,10 +88,11 @@ const Navbar = () => {
               className={navLinkStyle}
               onClick={() => setIsOpen(false)}
             >
-              Profile
+              Student Profile
             </NavLink>
 
-            <NavLink to="/admin/login" className={navLinkStyle}>
+            <NavLink to="/admin/login" className={navLinkStyle}
+              onClick={() => setIsOpen(false)}>
               Admin Dashboard
             </NavLink>
 
